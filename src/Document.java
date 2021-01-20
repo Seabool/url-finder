@@ -6,14 +6,13 @@ public class Document {
 
     public String getDocument(URL url) throws IOException {
 
-        Scanner sc = new Scanner(url.openStream());
-        StringBuffer sb = new StringBuffer();
+        Scanner scanner = new Scanner(url.openStream());
+        StringBuilder builder = new StringBuilder();
 
-        while (sc.hasNextLine()) {
-            sb.append(sc.nextLine());
+        while (scanner.hasNextLine()) {
+            builder.append(scanner.nextLine());
         }
 
-        return sb.toString();
+        return builder.toString();
     }
-
 }

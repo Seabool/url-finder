@@ -1,5 +1,4 @@
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -10,7 +9,7 @@ public class Finder {
 
         Pattern pattern = Pattern.compile(regex, Pattern.CASE_INSENSITIVE);
         Matcher matcher = pattern.matcher(text);
-        Set<String> list = new HashSet<String>();
+        Set<String> list = new HashSet<>();
 
         while (matcher.find()) {
             list.add(matcher.group());
@@ -30,7 +29,6 @@ public class Finder {
     public String findHead(String text) {
         Pattern pattern = Pattern.compile("<head>(.*?)</head>", Pattern.CASE_INSENSITIVE);
         Matcher matcher = pattern.matcher(text);
-        Set<String> list = new HashSet<String>();
         String head = "";
         if (matcher.find()) {
             head = matcher.group(1);
@@ -39,9 +37,8 @@ public class Finder {
     }
 
     public void displayFindings(Set<String> list) {
-        Iterator<String> it = list.iterator();
-        while (it.hasNext()) {
-            System.out.println(it.next());
+        for (String s : list) {
+            System.out.println(s);
         }
     }
 }
